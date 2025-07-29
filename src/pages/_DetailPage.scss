@@ -1,0 +1,35 @@
+
+.swiper-box{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    .swiper-item{
+
+    }
+    .swiper-control-prev,.swiper-control-next{
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        background-color: red;
+        z-index: 50;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        text-align: center;
+        background: none;
+        border: 0;
+        .swiper-control-prev-icon{
+            font-size: 32px;
+            color: #ffffff;
+            z-index: 55;
+        }
+    }
+
+    .swiper-control-prev{
+        left: 5%;
+    }
+    .swiper-control-next{
+        left: 95%;
+    }
+}

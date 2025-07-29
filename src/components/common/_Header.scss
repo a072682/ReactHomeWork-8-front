@@ -1,0 +1,17 @@
+.navbar-box{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #ffffff; // 導覽列背景白色
+}
+.shopping-cart-icon{
+    position:relative;
+    .navbar-icon-mark{
+        border-radius: 50%;
+        top: 0;
+        left: 120%;
+        transform: translate(-50%,-50%);
+        background-color:#000000;
+        color: #ffffff;
+    }
+}

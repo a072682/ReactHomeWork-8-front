@@ -1,0 +1,37 @@
+// 1. Bootstrap 核心依賴
+@import "../../../node_modules/bootstrap/scss/functions";
+// 2. 你自定義的變數
+@import "helpers/variables";
+// 3. Bootstrap 預設變數
+@import "../../../node_modules/bootstrap/scss/variables";
+
+
+// 4. Bootstrap maps / mixins
+@import "../../../node_modules/bootstrap/scss/maps";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+// 5. 載入 utilities 原始設定，此時讀到的是你覆蓋後的 `$font-sizes`
+@import "../../../node_modules/bootstrap/scss/utilities";
+
+// 6. 開啟響應式支援
+$utilities: map-merge(
+  $utilities,
+  (
+    "font-size": map-merge(
+      map-get($utilities, "font-size"),
+      (
+        responsive: true,
+      )
+    )
+  )
+);
+
+// 7. 使用 utilities 設定產生對應 class
+@import "../../../node_modules/bootstrap/scss/utilities/api";
+
+// 8. 其他樣式（Bootstrap 全部 or 拆開）
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+// 9. 自己的 CSS
+@import "Universal/Universal";
+@import "layout/custom";

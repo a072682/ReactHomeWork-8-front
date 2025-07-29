@@ -1,0 +1,35 @@
+# === 🧾 Logs ===
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# === 📦 Dependencies ===
+node_modules
+
+# === 🏗 Build output ===
+dist
+dist-ssr
+
+# === 🔐 Local config files ===
+*.local
+.env         # 加上這行，避免部署時把 env 上傳
+.env.*       # 保護 .env.production 等
+
+# === 🧑‍💻 Editor / IDE settings ===
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# === 🗃️ 自訂或意外目錄（強烈建議加上）===
+js-training-layout-1/  # 避免誤上傳子專案或 Git submodule 資料夾
+vite.svg               # 如果這是你 favicon 而又不想部署，可忽略它
