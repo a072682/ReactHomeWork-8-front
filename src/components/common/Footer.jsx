@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 
@@ -23,8 +24,8 @@ function Footer(){
                 <div className="bg-dark py-36">
                     <div className="container">
                         <div className="d-flex align-items-center justify-content-between text-white mb-md-7 mb-4">
-                            <Link to="/" className='text-white fs-24'>
-                                <img src={`${import.meta.env.BASE_URL}images/mode-design.png`} alt="" />
+                            <Link to="/" className='text-white fs-24 d-flex justify-content-center align-items-center' style={{width:"48px",height:"48px"}}>
+                                <img src={`${import.meta.env.BASE_URL}images/mode-design.png`} alt="" style={{maxWidth:"100%",height:"auto"}}/>
                             </Link>
                             <ul className="d-flex list-unstyled mb-0 fs-24 gap-24">
                                 <li><a href="#" className="text-white "><i className="fab fa-facebook"></i></a></li>

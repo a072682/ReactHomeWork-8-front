@@ -193,7 +193,7 @@ function ProductsPageContent ({productsItemsData,allProductsData}){
                                                     </i>
 
                                                     <div className="card-body p-3">
-                                                    <button className="border-0 p-0" onClick={()=>{navigate(`/DetailPage/${item.id}`)}}>
+                                                    <button className="border-0 p-0" onClick={()=>{navigate(`/DetailPage/${item.id}`)}} style={{backgroundColor:"#ffffff",}}>
                                                         <h4 className="mb-0 text-dark">{item.title}</h4>
                                                     </button>
                                                     <p className="card-text mb-0 mt-3">NT${item.price} <span className="text-muted "><del>NT${item.origin_price}</del></span></p>
@@ -257,7 +257,7 @@ function ProductsPageContent ({productsItemsData,allProductsData}){
                                                             </i>
 
                                                             <div className="card-body p-3">
-                                                            <button className="border-0 p-0" onClick={()=>{navigate(`/DetailPage/${item.id}`)}}>
+                                                            <button className="border-0 p-0" onClick={()=>{navigate(`/DetailPage/${item.id}`)}} style={{backgroundColor:"#ffffff",}}>
                                                                 <h4 className="mb-0 text-dark">{item.title}</h4>
                                                             </button>
                                                             <p className="card-text mb-0 mt-3">NT${item.price} <span className="text-muted "><del>NT${item.origin_price}</del></span></p>

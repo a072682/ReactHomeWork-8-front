@@ -3,9 +3,12 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import { useEffect } from 'react';
 import './_IndexProducts02.scss';
+import { useNavigate } from 'react-router-dom';
 
 
 function IndexProducts02 ({originalData}){
+
+    const navigate = useNavigate();//頁面跳轉宣告
 
     useEffect(()=>{
         console.log("目標資料",originalData)
@@ -48,20 +51,22 @@ function IndexProducts02 ({originalData}){
                                                         <SwiperSlide key={item.id}>
                                                             <div className="row">
                                                                 <div className="col-12 col-lg-6">
-                                                                    <img
-                                                                        src={item.imageUrl}
-                                                                        className="img"
-                                                                        alt="avatar"
-                                                                        style={{
-                                                                        width:"100%",
-                                                                        aspectRatio: "415 / 300",
-                                                                        objectFit:"cover",
-                                                                        borderRadius:"12px",
-                                                                        }}
-                                                                    />
+                                                                    <button className='border-0 p-0' onClick={()=>{navigate(`/DetailPage/${item.id}`)}}>
+                                                                        <img
+                                                                            src={item.imageUrl}
+                                                                            className="img"
+                                                                            alt="avatar"
+                                                                            style={{
+                                                                            width:"100%",
+                                                                            aspectRatio: "415 / 300",
+                                                                            objectFit:"cover",
+                                                                            borderRadius:"12px",
+                                                                            }}
+                                                                        />
+                                                                    </button>
                                                                 </div>
                                                                 <div className="col-12 col-lg-6">
-                                                                    <div className="d-flex flex-column justify-content-center align-items-start gap-2 p-3">
+                                                                    <div className="d-flex flex-column justify-content-center align-items-start gap-12 p-12">
                                                                         <h5 className="fw-bold m-0">{item.title}</h5>
                                                                         <p className="text-muted m-0">
                                                                             {item.description}

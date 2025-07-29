@@ -5,7 +5,7 @@ import IndexProducts from "../components/common/Index/IndexProducts";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsData } from "../slice/dataSlice";
 import IndexProducts02 from "../components/common/Index/IndexProducts02";
-
+import ReactLoading from 'react-loading';
 
 
 function Index (){
@@ -66,32 +66,52 @@ function Index (){
         setIndexProductsData(results);
     }
 
+    const mask = useSelector((state) => {//遮罩
+        return(
+            state.data.ProductsMask
+        )
+    });
+
+    useEffect(()=>{
+        console.log("test",mask);
+    },[mask])
+
 
     return(
         <>
-            <div className="position-relative">
-                <div    className="position-absolute" 
-                        style={{
-                            top: 0,
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            backgroundImage: 'url(https://images.unsplash.com/photo-1480399129128-2066acb5009e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)',
-                            backgroundPosition: 'center center',
-                            opacity: 0.1,
-                            position: 'absolute',
-                            zIndex:"-1",
-                        }}>
+            <div className="position-relative" style={{
+                        ...(mask ? {height:'calc(100vh - 56px - 174px)', overflow: 'hidden', } : {  }),
+                    }}>
+                <div className={`position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center ${mask?(null):("d-none")}`} 
+                    style={{backgroundColor:"#ffffff",opacity:"0.8",zIndex:"10",backdropFilter:"blur(5px)",}}>
+                    <ReactLoading type="spin" color="black" width="4rem" height="4rem" />
                 </div>
-                <IndexMainIntro />
-            </div>
-            <div className="IndexProducts">
-                <IndexProducts indexProductsData={indexProductsData}/>  
-            </div>
+                <div className="position-relative">
+                    <div    className="position-absolute" 
+                            style={{
+                                top: 0,
+                                bottom: 0,
+                                left: 0,
+                                right: 0,
+                                backgroundImage: 'url(https://images.unsplash.com/photo-1480399129128-2066acb5009e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)',
+                                backgroundPosition: 'center center',
+                                opacity: 0.1,
+                                position: 'absolute',
+                                zIndex:"-1",
+                            }}>
+                    </div>
+                    <IndexMainIntro />
+                </div>
             
-            <div className="IndexProducts02">
-                <IndexProducts02 originalData={originalData}/>
-            </div>          
+                <div className="IndexProducts">
+                    <IndexProducts indexProductsData={indexProductsData}/>  
+                </div>
+                
+                <div className="IndexProducts02">
+                    <IndexProducts02 originalData={originalData}/>
+                </div>   
+            </div>
+                   
         </>
     )
 }

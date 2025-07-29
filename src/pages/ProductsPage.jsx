@@ -79,10 +79,10 @@ function ProductsPage (){
         <>
             <div    className="position-relative"
                     style={{
-                        ...(mask ? {height:'calc(100vh -56px - 86px - 228px)', overflow: 'hidden', } : {  }),
+                        ...(mask ? {height:'calc(100vh - 56px - 174px)', overflow: 'hidden', } : {  }),
                     }}>
                 <div className={`position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center ${mask?(null):("d-none")}`} 
-                style={{backgroundColor:"#ffffff",opacity:"0.8",zIndex:"10",}}>
+                style={{backgroundColor:"#ffffff",opacity:"0.8",zIndex:"10",backdropFilter:"blur(5px)",}}>
                     <ReactLoading type="spin" color="black" width="4rem" height="4rem" />
                 </div>
                 <ProductsPageIntro />

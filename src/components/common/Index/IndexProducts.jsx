@@ -2,9 +2,12 @@ import { useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
+import { useNavigate } from "react-router-dom";
 
 
 function IndexProducts ({indexProductsData}){
+
+    const navigate = useNavigate();//頁面跳轉宣告
 
     useEffect(()=>{},[indexProductsData])
 
@@ -47,17 +50,26 @@ function IndexProducts ({indexProductsData}){
                                         <SwiperSlide key={item.id}>
                                             <div key={item.id} className="col-md-4 w-100">
                                                 <div className="card border-0">
-                                                    <img
-                                                    src={item.imageUrl}
-                                                    className="card-img-top"
-                                                    alt={item.title}
-                                                    style={{
-                                                    aspectRatio: "415 / 300",
-                                                    objectFit:"cover",
-                                                    borderRadius:"12px",
-                                                    }} />
+                                                    <button className="border-0 p-0" 
+                                                            onClick={()=>{navigate(`/DetailPage/${item.id}`)}} 
+                                                            style={{backgroundColor:"#ffffff",}}>
+                                                        <img
+                                                            src={item.imageUrl}
+                                                            className="card-img-top"
+                                                            alt={item.title}
+                                                            style={{
+                                                            aspectRatio: "415 / 300",
+                                                            objectFit:"cover",
+                                                            borderRadius:"12px",
+                                                        }}/>
+                                                    </button>
+                                                    
                                                     <div className="card-body text-center">
-                                                        <h4>{item.title}</h4>
+                                                        <button className="border-0 p-0 fs-28 fw-700" 
+                                                                onClick={()=>{navigate(`/DetailPage/${item.id}`)}} 
+                                                                style={{backgroundColor:"#ffffff",}}>
+                                                                    {item.title}
+                                                        </button>
                                                         <div className="d-flex justify-content-between">
                                                             <p className="card-text text-muted mb-0">
                                                                 {item.content}
